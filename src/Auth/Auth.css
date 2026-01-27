@@ -1,0 +1,86 @@
+
+
+/* ===== AUTH PAGE WRAPPER ===== */
+.Auth-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== AUTH CARD ===== */
+.Auth-card {
+  width: 420px;              /* 🔥 PC width */
+  max-width: 92%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 32px;
+  color: #fff;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+/* ===== TITLES ===== */
+.Auth-card h2 {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.sub {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 22px;
+}
+
+/* ===== INPUT GROUP ===== */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  width: 100%;               /* 🔥 IMPORTANT */
+}
+
+.input-group input {
+  width: 100%;               /* 🔥 IMPORTANT */
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 15px;
+}
+
+.input-group input::placeholder {
+  color: #cbd5f5;
+}
+
+/* ===== BUTTON ===== */
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #7c7cff, #4ddcff);
+  margin-top: 10px;
+}
+
+/* ===== BOTTOM TEXT ===== */
+.bottom-text {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.bottom-text span {
+  color: #4ddcff;
+  cursor: pointer;
+}

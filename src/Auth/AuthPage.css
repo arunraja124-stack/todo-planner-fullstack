@@ -1,0 +1,71 @@
+/* FULL SCREEN BACKGROUND */
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MAIN BOX */
+.auth-box {
+  width: 900px;
+  height: 520px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 26px;
+  display: flex;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* EACH SIDE */
+.auth-panel {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔥 VERY IMPORTANT FIX */
+.auth-panel .app,
+.auth-panel .auth-card {
+  width: 100%;
+  max-width: 100%;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .auth-box {
+    flex-direction: column;
+    width: 92%;
+    height: auto;
+  }
+
+  .auth-panel {
+    width: 100%;
+  }
+}
+.auth-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(
+    circle at top,
+    #6a5acd,
+    #0f172a 70%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container {
+  width: 420px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 22px;
+  padding: 36px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
