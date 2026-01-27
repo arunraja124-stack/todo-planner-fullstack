@@ -2,10 +2,11 @@
   "name": "todo-backend",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "Todo Planner Full Stack Backend",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
