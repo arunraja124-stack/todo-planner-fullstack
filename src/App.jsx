@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import TodoList from "./components/TodoList";
-import AuthPage from "./auth/AuthPage";
+import AuthPage from "./Auth/authPage";
 
 function App() {
   // 🔐 AUTH STATE
@@ -40,7 +40,7 @@ function App() {
     }
   }, []);
 
-  // 📥 FETCH TASKS FROM DB (ONLY SOURCE)
+  // 📥 FETCH TASKS
   async function fetchTasks() {
     const userId = localStorage.getItem("userId");
     if (!userId) return;
@@ -54,7 +54,7 @@ function App() {
     if (user) fetchTasks();
   }, [user]);
 
-  // ➕ ADD TASK (DB + UI)
+  // ➕ ADD TASK
   async function addTask() {
     if (!task || !dueDate) return;
 
@@ -75,11 +75,9 @@ function App() {
 
     setTask("");
     setDueDate("");
-
-    fetchTasks(); // 🔥 THIS MAKES UI UPDATE
+    fetchTasks();
   }
 
-  // ✅ UI FEATURES (UNCHANGED)
   function toggleComplete(index) {
     setTasks(tasks.map((t, i) =>
       i === index ? { ...t, completed: !t.completed } : t

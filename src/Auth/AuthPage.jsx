@@ -10,7 +10,6 @@ function AuthPage({ setUser }) {
   return (
     <div className="auth-wrapper">
       <div className="auth-container">
-
         <AnimatePresence mode="wait">
           {mode === "login" && (
             <motion.div
@@ -35,13 +34,10 @@ function AuthPage({ setUser }) {
               exit={{ x: -80, opacity: 0 }}
               transition={{ duration: 0.45 }}
             >
-              <Register
-                setPage={() => setMode("login")}
-              />
+              <Register setPage={() => setMode("login")} />
             </motion.div>
           )}
         </AnimatePresence>
-
       </div>
     </div>
   );
