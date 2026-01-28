@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import TodoList from "./components/TodoList";
 import AuthPage from "./Auth/AuthPage";
-
+import { API_URL } from "./config";
 
 function App() {
   // 🔐 AUTH STATE
@@ -46,7 +46,7 @@ function App() {
     const userId = localStorage.getItem("userId");
     if (!userId) return;
 
-    const res = await fetch(`http://localhost:5000/tasks/${userId}`);
+    const res = await fetch(`${API_URL}/tasks/${userId}`);
     const data = await res.json();
     setTasks(data);
   }
@@ -62,7 +62,7 @@ function App() {
     const userId = localStorage.getItem("userId");
     if (!userId) return;
 
-    await fetch("http://localhost:5000/tasks", {
+    await fetch(`${API_URL}/tasks`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

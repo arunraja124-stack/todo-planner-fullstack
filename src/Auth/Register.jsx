@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Auth.css";
+import { API_URL } from "../config";
 
 function Register({ setPage }) {
   const [name, setName] = useState("");
@@ -15,7 +16,7 @@ function Register({ setPage }) {
       return;
     }
 
-    const res = await fetch("http://localhost:5000/register", {
+    const res = await fetch(`${API_URL}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
