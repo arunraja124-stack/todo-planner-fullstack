@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import TodoList from "./components/TodoList";
-import AuthPage from "./Auth/authPage";
+import AuthPage from "./auth/authPage";
 
 function App() {
   // 🔐 AUTH STATE
