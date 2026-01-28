@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Auth.css";
+import "./Login.css";
 
 function Login({ setUser, setPage }) {
   const [email, setEmail] = useState("");
@@ -43,7 +43,7 @@ function Login({ setUser, setPage }) {
   }
 
   return (
-    <form className="auth-card" onSubmit={handleLogin}>
+    <form className="Auth-card" onSubmit={handleLogin}>
       <h2>Log in</h2>
       <p className="sub">Welcome back</p>
 
