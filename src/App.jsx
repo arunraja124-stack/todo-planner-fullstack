@@ -3,9 +3,6 @@ import "./App.css";
 import TodoList from "./components/TodoList";
 import AuthPage from "./auth/AuthPage";
 
-
-
-
 function App() {
   // 🔐 AUTH STATE
   const [user, setUser] = useState(localStorage.getItem("currentUser"));
