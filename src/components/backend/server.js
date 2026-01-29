@@ -1,33 +1,40 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-console.log("DB_HOST =", process.env.DB_HOST);
 import mysql from "mysql2";
 
 dotenv.config();
+
+// 🔍 DEBUG (keep for now)
+console.log("DB_HOST =", process.env.DB_HOST);
+
 if (!process.env.DB_HOST) {
   console.error("❌ DB_HOST NOT FOUND. ENV VARS NOT LOADED.");
   process.exit(1);
 }
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-// ✅ FIXED CORS
+// ✅ FIXED CORS (allow frontend)
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
 app.use(express.json());
 
-// DB connection
+// ✅ FIXED DB CONNECTION (NO localhost)
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Shansi12",
-  database: "todo_app"
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  ssl: {
+    rejectUnauthorized: true
+  }
 });
 
 db.connect((err) => {
@@ -42,10 +49,6 @@ db.connect((err) => {
 app.get("/", (req, res) => {
   res.send("Backend running 🚀");
 });
-
-/* =========================
-   ADD ROUTES BELOW THIS
-========================= */
 
 // LOGIN
 app.post("/login", (req, res) => {
