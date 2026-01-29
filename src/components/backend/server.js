@@ -1,12 +1,18 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import mysql from "mysql2";
 import fs from "fs";
 import path from "path";
-import mysql from "mysql2";
+import { fileURLToPath } from "url"; 
 
-// load CA cert
+dotenv.config();
+
+// ESM-safe __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ✅ Correct CA path (same folder as server.js)
+// Load CA certificate (same folder as server.js)
 const caCert = fs.readFileSync(
   path.join(__dirname, "ca.pem")
 );
