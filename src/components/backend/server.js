@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+console.log("DB_HOST =", process.env.DB_HOST);
 import mysql from "mysql2";
 
 dotenv.config();
