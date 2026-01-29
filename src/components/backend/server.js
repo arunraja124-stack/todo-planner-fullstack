@@ -3,8 +3,12 @@ import path from "path";
 import mysql from "mysql2";
 
 // load CA cert
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// ✅ Correct CA path (same folder as server.js)
 const caCert = fs.readFileSync(
-  path.resolve("src/components/backend/ca.pem")
+  path.join(__dirname, "ca.pem")
 );
 
 const db = mysql.createConnection({
