@@ -5,6 +5,10 @@ console.log("DB_HOST =", process.env.DB_HOST);
 import mysql from "mysql2";
 
 dotenv.config();
+if (!process.env.DB_HOST) {
+  console.error("❌ DB_HOST NOT FOUND. ENV VARS NOT LOADED.");
+  process.exit(1);
+}
 
 const app = express();
 const PORT = 5000;
