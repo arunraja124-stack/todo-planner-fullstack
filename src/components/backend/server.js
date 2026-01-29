@@ -40,3 +40,30 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
+db.connect((err) => {
+  if (err) {
+    console.error("DB connection failed:", err);
+    return;
+  }
+
+  console.log("✅ MySQL connected");
+
+  // 🔥 AUTO-CREATE USERS TABLE (EASY FIX)
+  const createUsersTable = `
+    CREATE TABLE IF NOT EXISTS users (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(100) NOT NULL,
+      email VARCHAR(100) NOT NULL UNIQUE,
+      password VARCHAR(255) NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+  `;
+
+  db.query(createUsersTable, (err) => {
+    if (err) {
+      console.error("❌ Users table creation failed:", err);
+    } else {
+      console.log("✅ Users table ready");
+    }
+  });
+});
