@@ -1,18 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const PORT = process.env.PORT;
 
-const db = require("./db"); // ✅ CORRECT IMPORT
+const db = require("./db"); // ✅ DB connection file
 
 const app = express();
 
+// 🌐 Middleware
 app.use(cors());
 app.use(express.json());
 
 // 🧪 Health check
 app.get("/", (req, res) => {
-  res.send("Backend running");
+  res.send("Backend running 🚀");
 });
 
 // 🔐 REGISTER
@@ -50,10 +50,9 @@ app.post("/login", (req, res) => {
   });
 });
 
-// 🚀 START SERVERconst PORT = process.env.PORT;
+// 🚀 START SERVER (ONLY ONCE – Render safe)
+const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
-
-
